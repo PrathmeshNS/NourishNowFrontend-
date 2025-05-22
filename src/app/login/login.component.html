@@ -16,6 +16,7 @@
                 type="email" 
                 formControlName="email" 
                 placeholder="Enter Your Email"
+                class="first-input"
                 [ngClass]="{'invalid': email?.invalid && email?.touched}"
               >
               <div class="error-message" *ngIf="email?.invalid && email?.touched" style="color: red;">
@@ -41,7 +42,7 @@
               <a href="#">Forget Password?</a>
             </div>
             
-            <button type="submit" (click)="loginUser()" class="login-button">Login</button>
+            <button type="submit" (click)="loginUser()" class="login-button" style="background:none;">Login</button>
             
             <div class="register-link">
               Don't Have Account? <a href="#">Register Here</a>

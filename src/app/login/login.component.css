@@ -34,8 +34,9 @@
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--card-shadow);
-    border: 2px solid #333;
+    border: 1px solid #333;
     line-height: 50px;
+    border-radius: 21px;
 }
 
 /* Create gradient border effect */
@@ -118,6 +119,10 @@ input {
     border-radius: 8px;
 }
 
+.first-input{
+    margin: 1.5rem 0 0 0;
+}
+
 input:focus {
     outline: none;
     border-color: var(--primary-color);
@@ -153,18 +158,23 @@ input.invalid {
 /* Login button */
 .login-button {
     width: 37%;
-    padding: 5px;
-    border: 1.5px solid orange !important;
+    padding: 3px;
+    border: 1.5px solid grey !important;
     border-radius: 10px;
     font-size: 16px;
     font-weight: 600;
+    color: orange;
     cursor: pointer;
     transition: var(--transition);
+    margin: 0 calc(100% - 20rem) 0;
 }
 
+
 .login-button:hover {
-    background-color: #f39423;
+    background-color: #f39423 !important;
     transform: translateY(-2px);
+    color: black;
+    border: none !important;
 }
 
 .login-button:active {

@@ -34,9 +34,6 @@ const routes: Routes = [
         path: '', component: HotelAddMealComponent, pathMatch: 'full'
       },
       {
-        path: 'navbar', component: HotelNavbarComponent, pathMatch: 'full'
-      },
-      {
         path: 'history', component: HotelHistoryComponent
       }, 
       {

@@ -1,59 +1,64 @@
-  <header>
-    <h1>HotelAddMeal</h1>
-  </header>
+<div class="hotel-navbar">
+  <app-hotel-navbar></app-hotel-navbar>
+</div>
 
-  <div class="content-wrapper">
-    <nav class="navigation">
-      <ul>
-        <li class="active">Add Meal</li>
-        <li>History</li>
-        <li>Listed Ngo</li>
-        <li>View order</li>
-      </ul>
-      <div class="ngo-logo">
-        <div class="logo-circle">
-            <img src="./assets/Support.png" alt="">
-        </div>
+<div class="content-wrapper">
+  <div class="form-container">
+    <div class="instruction">
+      <p>Please Separate Item with the comma(,)*</p>
+    </div>
+
+    <div class="input-container">
+      <input
+        type="text"
+        placeholder="Enter your Food item......"
+        [(ngModel)]="foodItems"
+        class="food-input"
+      />
+      <input type="submit" (click)="addFood()" value="add food" class="add-food" />
+    </div>
+
+    <div class="show-added-food" *ngIf="foodContainer != null then showAddeditem else showNothing"></div>
+
+    <ng-template #showNothing></ng-template>
+
+    <ng-template #showAddeditem >
+      <div class="added-food" >
+        <table class="table">
+          <tbody *ngFor="let food of foodContainer">
+            <tr>
+              <th scope="row">{{foodContainer.indexOf(food)+1}}</th>
+              <td>{{food}}</td>
+              <td><button class="action-button">delete</button>
+              <button class="action-button">edit</button></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </nav>
 
-    <div class="form-container">
-      <div class="instruction">
-        <p>Please Separate Item with the comma(,)*</p>
+    </ng-template>
+    <div class="form-options">
+      <div class="delivery-type">
+        <span class="label">Delivery Type :</span>
+        <select [(ngModel)]="deliveryType">
+          <option value="Delivery" selected>Delivery</option>
+          <option value="Pickup">Pickup</option>
+        </select>
       </div>
 
-      <div class="input-container">
-        <input 
-          type="textarea" 
-          placeholder="Enter your Food item......" 
-          [(ngModel)]="foodItems"
-          class="food-input"
-        >
+      <div class="person-count">
+        <span class="label">Approx person Can Eat :</span>
+        <input
+          type="number"
+          placeholder="Number"
+          [(ngModel)]="personCount"
+          class="number-input"
+        />
       </div>
 
-      <div class="form-options">
-        <div class="delivery-type">
-          <span class="label">Delivery Type :</span>
-          <select [(ngModel)]="deliveryType">
-            <option value="Pick Deliverable">Pick Deliverable</option>
-            <option value="Delivery">Delivery</option>
-            <option value="Pickup">Pickup</option>
-          </select>
-        </div>
-
-        <div class="person-count">
-          <span class="label">Approx person Can Eat :</span>
-          <input 
-            type="number" 
-            placeholder="Number" 
-            [(ngModel)]="personCount"
-            class="number-input"
-          >
-        </div>
-
-        <button class="add-button" (click)="addItem()">
-          <span class="plus-icon">+</span> Add Item
-        </button>
-      </div>
+      <button class="add-button" (click)="addItem()">
+        <span class="plus-icon">+</span> Add Item
+      </button>
     </div>
   </div>
+</div>

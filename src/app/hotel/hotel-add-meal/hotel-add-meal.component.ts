@@ -9,34 +9,28 @@ export class HotelAddMealComponent {
 
   title = 'HotelAddMeal';
   foodItems: string = '';
-  deliveryType: string = 'Pick Deliverable';
+  deliveryType: string = 'Delivery';
   personCount: number | null = null;
-  backgroundImage: string | ArrayBuffer | null = null;
+  foodContainer: string[]= [];
+
 
   addItem(): void {
-    console.log('Food Items:', this.foodItems);
+    console.log('Food Items:', this.foodContainer);
     console.log('Delivery Type:', this.deliveryType);
     console.log('Person Count:', this.personCount);
     // Here you would typically send this data to a service
     alert('Item added successfully!');
-    this.resetForm();
+    console.log(this.foodContainer)
+  }
+
+  addFood() {
+    this.foodContainer.push(this.foodItems);
+    this.foodItems = ""
   }
 
   resetForm(): void {
     this.foodItems = '';
     this.deliveryType = 'Pick Deliverable';
     this.personCount = null;
-  }
-
-  onFileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files[0]) {
-      const file = input.files[0];
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.backgroundImage = reader.result;
-      };
-      reader.readAsDataURL(file);
-    }
   }
 }
